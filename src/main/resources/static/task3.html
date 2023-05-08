@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>被災住宅金融支援申請</title>
+    <script type="text/javascript" ></script>
+    <style>
+        .header3{
+            font-size: 15px;
+            text-align: center;
+            margin:20px auto;
+        }
+
+
+        table {
+            border-collapse: collapse;
+            width: fit-content;
+            width: 90%;
+
+            margin-bottom: 3em;
+        }
+
+
+        td, th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-image: url('background.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+
+        .anniu{
+
+            text-align: center;
+
+        }
+
+        .alert{
+            color: red;
+            font-size: 15px;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+        <div class="header3">
+            <h1>被災住宅金融支援申請</h1>
+        </div>
+
+
+        <table>
+            <tr>
+                <th colspan="2">被災住宅の種類</th>
+            </tr>
+            <tr>
+                <td>被災住宅の種類</td>
+
+                <td><select name="dbHisaijutakuShurui" id="dbHisaijutakuShurui" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="マイホーム" id="myHome">マイホーム</option>
+                    <option value="賃貸住宅">賃貸住宅</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>被災住宅の所有等</td>
+                <td><select name="dbHisaijutakuShoyuu" id="dbHisaijutakuShoyuu" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="申込本人が所有している">申込本人が所有している</option>
+                    <option value="申込本人が借りている" id="moshikomi">申込本人が借りている</option>
+                    <option value="上記以外">上記以外</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>被害状況</td>
+                <td><select name="dbHigaiJokyo" id="dbHigaiJokyo" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="01全壊">01全壊</option>
+                    <option value="02大規模半壊">02大規模半壊</option>
+                    <option value="03半壊">03半壊</option>
+                    <option value="04避難指示あり">04避難指示あり</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>被災住宅の修理が不能又は困難である</td>
+                <td><input type="checkbox" name="dbHigaiJokyoDaikiboHankaiOrHankai" id="dbHigaiJokyoDaikiboHankaiOrHankai" value="">
+                    困難である
+                    </input>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="2">敷地状況</th>
+            </tr>
+            <tr>
+                <td>敷地の面積 (㎡)</td>
+                <td><input type="text" name="dbBukken_Menseki" id="dbBukken_Menseki">&nbsp;㎡
+                    <span id="alertdbBukken_Menseki" class="alert"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>物件_敷地（所在地）_都道府県</td>
+                <td><select name="aplBukkenAddressTodofuken" id="aplBukkenAddressTodofuken" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="北海道">北海道</option>
+                    <option value="青森県">青森県</option>
+                    <option value="岩手県">岩手県</option>
+                    <option value="宮城県">宮城県</option>
+                    <option value="秋田県">秋田県</option>
+                    <option value="山形県">山形県</option>
+                    <option value="福島県">福島県</option>
+                    <option value="茨城県">茨城県</option>
+                    <option value="栃木県">栃木県</option>
+                    <option value="群馬県">群馬県</option>
+                    <option value="埼玉県">埼玉県</option>
+                    <option value="千葉県">千葉県</option>
+                    <option value="東京都">東京都</option>
+                    <option value="神奈川県">神奈川県</option>
+                    <option value="新潟県">新潟県</option>
+                    <option value="富山県">富山県</option>
+                    <option value="石川県">石川県</option>
+                    <option value="福井県">福井県</option>
+                    <option value="山梨県">山梨県</option>
+                    <option value="長野県">長野県</option>
+                    <option value="岐阜県">岐阜県</option>
+                    <option value="静岡県">静岡県</option>
+                    <option value="愛知県">愛知県</option>
+                    <option value="三重県">三重県</option>
+                    <option value="滋賀県">滋賀県</option>
+                    <option value="京都府">京都府</option>
+                    <option value="大阪府">大阪府</option>
+                    <option value="兵庫県">兵庫県</option>
+                    <option value="奈良県">奈良県</option>
+                    <option value="和歌山県">和歌山県</option>
+                    <option value="鳥取県">鳥取県</option>
+                    <option value="島根県">島根県</option>
+                    <option value="岡山県">岡山県</option>
+                    <option value="広島県">広島県</option>
+                    <option value="山口県">山口県</option>
+                    <option value="徳島県">徳島県</option>
+                    <option value="香川県">香川県</option>
+                    <option value="愛媛県">愛媛県</option>
+                    <option value="高知県">高知県</option>
+                    <option value="福岡県">福岡県</option>
+                    <option value="佐賀県">佐賀県</option>
+                    <option value="長崎県">長崎県</option>
+                    <option value="熊本県">熊本県</option>
+                    <option value="大分県">大分県</option>
+                    <option value="宮崎県">宮崎県</option>
+                    <option value="鹿児島県">鹿児島県</option>
+                    <option value="沖縄県">沖縄県</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>物件_敷地（所在地）_市郡</td>
+                <td><input type="text" name="dbBukkenAddressShigun" id="dbBukkenAddressShigun"><span id="AlertdbBukkenAddressShigun" class="alert"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>物件_敷地（所在地）_町村</td>
+                <td><input type="text" name="dbBukkenAddressChoson" id="dbBukkenAddressChoson"><span id="AlertdbBukkenAddressChoson" class="alert"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>物件_敷地（所在地）_番地</td>
+                <td><input type="text" name="aplBukkenAddressBanchi" id="aplBukkenAddressBanchi"><span id="AlertaplBukkenAddressBanchi" class="alert"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>物件_敷地（所在地）_郵便番号</td>
+                <td><input type="text" name="aplBukkenAddressPostCode3" id="aplBukkenAddressPostCode3"><span id="AlertaplBukkenAddressPostCode3" class="alert"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>防災集団移転事業に係る住宅再建を行う</td>
+                <td><input type="checkbox" name="dbBousaiSyudanItenJigyo" id="dbBousaiSyudanItenJigyo" value="">
+                    該当
+                    </input>
+                </td>
+            </tr>
+            <tr>
+                <td>敷地の所有関係</td>
+                <td><select name="dbBukkenShikichiNoShoyuKankei" id="dbBukkenShikichiNoShoyuKankei" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="01 所有権">01 所有権</option>
+                    <option value="02 地上権">02 地上権</option>
+                    <option value="03 賃貸借">03 賃貸借</option>
+                    <option value="04 使用貸借">04 使用貸借</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>建物の床面積_住宅部分</td>
+                <td><input type="text" name="dbBukken_Tatemono_Jutaku" id="dbBukken_Tatemono_Jutaku">&nbsp;㎡<span id="alertdbBukken_Tatemono_Jutaku" class="alert"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>建物の床面積_非住宅部分</td>
+                <td><input type="text" name="dbBukken_Tatemono_HiJutaku" id="dbBukken_Tatemono_HiJutaku">&nbsp;㎡<span id="alertdbBukken_Tatemono_HiJutaku" class="alert"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>建物の構造(戸建形式)</td>
+                <td><select name="dbBukken_Kozo" id="dbBukken_Kozo" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="01木作">01木作</option>
+                    <option value="02耐火">02耐火</option>
+                    <option value="03準耐火">03準耐火</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>建て方</td>
+                <td><select name="dbBukken_TatekataKodateKeishiki" id="dbBukken_TatekataKodateKeishiki" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="01一戸建て">01一戸建て</option>
+                    <option value="02連続建て">02連続建て</option>
+                    <option value="03重ね建て">03重ね建て</option>
+                    <option value="04共同建て">04共同建て</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>入居予定年月</td>
+                <td><select name="dbNyukyoYoteiDateYear" id="dbNyukyoYoteiDateYear" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                </select>
+                    <select name="dbNyukyoYoteiDateMonth" id="dbNyukyoYoteiDateMonth" >
+                        <option value="">オプションを選択してください。</option>
+                        <option value="1月">1月</option>
+                        <option value="2月">2月</option>
+                        <option value="3月">3月</option>
+                        <option value="4月">4月</option>
+                        <option value="5月">5月</option>
+                        <option value="6月">6月</option>
+                        <option value="7月">7月</option>
+                        <option value="8月">8月</option>
+                        <option value="9月">9月</option>
+                        <option value="10月">10月</option>
+                        <option value="11月">11月</option>
+                        <option value="12月">12月</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>住宅の用途</td>
+                <td><select name="dbJutakuYoto" id="dbJutakuYoto" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="01自ら居住する">01自ら居住する</option>
+                    <option value="02親族が居住する">02親族が居住する</option>
+                    <option value="03賃貸住宅">03賃貸住宅</option>
+                    <option value="04その他">04その他</option>
+                </select>
+                </td>
+            </tr>
+            <tr>
+                <td>物件_工事完了予定年月</td>
+                <td><select name="dbBukken_KojiKanryoDate_Year" id="dbBukken_KojiKanryoDate_Year" >
+                    <option value="">オプションを選択してください。</option>
+                    <option value="2022">2022</option>
+                    <option value="2023">2023</option>
+                    <option value="2024">2024</option>
+                    <option value="2025">2025</option>
+                    <option value="2026">2026</option>
+                </select>
+                    <select name="dbBukken_KojiKanryoDate_Month" id="dbBukken_KojiKanryoDate_Month" >
+                        <option value="">オプションを選択してください。</option>
+                        <option value="1月">1月</option>
+                        <option value="2月">2月</option>
+                        <option value="3月">3月</option>
+                        <option value="4月">4月</option>
+                        <option value="5月">5月</option>
+                        <option value="6月">6月</option>
+                        <option value="7月">7月</option>
+                        <option value="8月">8月</option>
+                        <option value="9月">9月</option>
+                        <option value="10月">10月</option>
+                        <option value="11月">11月</option>
+                        <option value="12月">12月</option>
+                    </select>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th colspan="3">資金の受取予定年月</th>
+            </tr>
+
+            <tr>
+                <td>  土地先行資金</td>
+                <td> <label class="biaoqian"></label>
+
+                    <select name="dbShikinDateTochiShikinYear" id="dbShikinDateTochiShikinYear">
+                        <option value="">オプションを選択してください。</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+
+                    <select name="dbShikinDateTochiShikinMonth" id="dbShikinDateTochiShikinMonth">
+                        <option value="">オプションを選択してください。</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </td>
+                <td>  </td>
+            </tr>
+            <tr>
+                <td>中間資金</td>
+                <td>
+                    <label class="biaoqian"></label>
+
+                    <select name="dbShikinDateChukanShikinYear" id="dbShikinDateChukanShikinYear">
+                        <option value="">オプションを選択してください。</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+
+                    <select name="dbShikinDateChukanShikinMonth" id="dbShikinDateChukanShikinMonth">
+                        <option value="">オプションを選択してください。</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>最終資金</td>
+                <td>
+                    <label class="biaoqian"></label>
+
+                    <select name="dbShikinDateSaishuShikinYear" id="dbShikinDateSaishuShikinYear">
+                        <option value="">オプションを選択してください。</option>
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                    </select>
+
+                    <select name="dbShikinDateSaishuShikinMonth" id="dbShikinDateSaishuShikinMonth">
+                        <option value="">オプションを選択してください。</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
+                </td>
+                <td></td>
+            </tr>
+        </table>
+
+
+
+        <table>
+            <tr>
+                <th colspan="2"> 工事請負事業者</th>
+            </tr>
+            <tr>
+                <td>会社名称</td>
+                <td><input type="text" name="dbKariireIninKaishaName" id="dbKariireIninKaishaName"><span id="AlertdbKariireIninKaishaName" class="alert"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>仲介業者又は販売代理_名称（カナ）</td>
+                <td><input type="text" name="dbChukaiHanbaiNameKana" id="dbChukaiHanbaiNameKana"><span id="AlertdbChukaiHanbaiNameKana" class="alert"></span>
+                </td>
+            </tr>
+
+        </table>
+
+
+        <table>
+            <tr>
+                <th colspan="2"> 担当者名</th>
+            </tr>
+            <tr>
+                <td>仲介業者又は販売代理_担当者名_姓</td>
+                <td><input type="text" name="dbChukaiHanbaiTantoshaNameSei" id="dbChukaiHanbaiTantoshaNameSei"><span id="AlertdbChukaiHanbaiTantoshaNameSei" class="alert"></span>
+                </td>
+            </tr>
+            <tr>
+                <td>仲介業者又は販売代理_担当者名_名</td>
+                <td><input type="text" name="dbChukaiHanbaiTantoshaNameMei" id="dbChukaiHanbaiTantoshaNameMei"><span id="AlertdbChukaiHanbaiTantoshaNameMei" class="alert"></span>
+                </td>
+            </tr>
+
+        </table>
+
+        <table>
+           <tr>
+            <th colspan="3"> 建設に要する費用</th>
+        </tr>
+
+
+            <tr>
+                <td>建設費</td>
+                <td>土地取得費</td>
+                <td>費用合計</td>
+            </tr>
+            <tr>
+                <td><input type="text" name="dbHiyouKensetsuHi" id="dbHiyouKensetsuHi" maxlength="5"></td>
+                <td><input type="text" name="dbHiyouTochiSyotokuHi" id="dbHiyouTochiSyotokuHi"> </td>
+                <td><input type="text" name="dbHiyouTotal" id="dbHiyouTotal"> </td>
+            </tr>
+        </table>
+
+<!--        <table>-->
+<!--            <tr>-->
+<!--                <th colspan="3">建設に要する費用</th>-->
+<!--            </tr>-->
+
+<!--            <tr>-->
+<!--                <td>建設費 </td>-->
+<!--                <td>土地取得費</td>-->
+<!--                <td>費用合計 </td>-->
+<!--            </tr>-->
+<!--            <tr>-->
+<!--                <td><input type="text" name="DBHiyouKensetsuHi" > 万円</td>-->
+<!--                <td><input type="text" name="DBHiyouTochiSyotokuHi"> 万円</td>-->
+<!--                <td></td>-->
+<!--            </tr>-->
+<!--        </table>-->
+
+
+
+
+
+        <!--        災害融資の借入希望額-->
+       <table>
+           <tr>
+               <th colspan="5">災害融資の借入希望額</th>
+           </tr>
+
+           <tr>
+               <td>借入内容</td>
+               <td>借入金額</td>
+               <td>金利</td>
+               <td>返済期間</td>
+               <td>年間返済額の1/12</td>
+           </tr>
+
+           <tr>
+               <td>災害融資の借入希望額</td>
+               <td><input type="text"  name="dbKariireGakuKingaku" id="dbKariireGakuKingaku"> 万円</td>
+               <td><input type="text" name="dbKariireGakuKinri" id="dbKariireGakuKinri"> %</td>
+               <td><input type="text" name="dbKariireGakuHensaiKikan" id="dbKariireGakuHensaiKikan"> 年</td>
+               <td><input type="text" name="dbKariireGakuNenHensai12No1" id="dbKariireGakuNenHensai12No1"></td>
+
+
+           </tr>
+
+           <tr>
+               <td>返済方法</td>
+               <td colspan="2">
+                   <label class="biaoqian"></label>
+                   <select name="dbHensaiHouhou" id="dbHensaiHouhou">
+                       <option value="">オプションを選択してください。</option>
+                       <option value="元利均等返済">元利均等返済</option>
+                       <option value="元金均等返済">元金均等返済</option>
+
+
+                   </select>
+
+               </td>
+               <td colspan="2"></td>
+
+           </tr>
+
+
+
+           <tr>
+               <td>据置期間</td>
+               <td colspan="2">
+                   <label class="biaoqian"></label>
+                   <label><input type="radio" name="dbSueokiKikanNoNensu" id="dbSueokiKikanNoNensu1" value="有">有</label>
+                   <label><input type="radio" name="dbSueokiKikanNoNensu" id="dbSueokiKikanNoNensu2" value="無">無</label>
+                   <select name="dbSueokiKikanNoNensu" id="dbSueokiKikanNoNensu">
+                       <option value="">オプションを選択してください。</option>
+                       <option value="1年">1年</option>
+                       <option value="2年">2年</option>
+                       <option value="3年">3年</option>
+                       <option value="4年">4年</option>
+                       <option value="5年以上">5年以上</option>
+
+
+                   </select>
+               </td>
+               <td colspan="2">据置期間を含めて、完済時年齢80歳を超えることはできません。</td>
+           </tr>
+
+
+           <tr>
+               <td>被災親族同居の有無</td>
+               <td colspan="2">
+                   <label class="biaoqian"></label>
+                   <label><input type="radio" name="dbHisaiShinzokuDokyoAri" id="dbHisaiShinzokuDokyoAri1" value="有">有</label>
+                   <label><input type="radio" name="dbHisaiShinzokuDokyoAri" id="dbHisaiShinzokuDokyoAri2" value="無">無</label>
+
+               </td>
+               <td colspan="2">被災親族同居の要件を満たす場合のみ「有」を選択してください。</td>
+           </tr>
+       </table>
+
+
+
+
+            <table>
+                <tr>
+                <th>最终合計金額</th>
+                </tr>
+
+                <tr>
+                <td>建設に要する費用</td>
+                </tr>
+
+                <tr>
+                <td>
+
+                </td>
+                </tr>
+
+                <tr>
+                <td>災害融資の借入希望額、その他の借入内容、手持金の合計</td>
+                </tr>
+
+                <tr>
+                <td>
+
+                </td>
+                </tr>
+            </table>
+
+
+        <br><br>
+        <div class="anniu">
+            <button type="button" id="ReturnButton">戻る</button>
+            <button type="button" id="NextButton">次へ</button>
+        </div>
+
+
+
+
+<script>
+    let dbHisaijutakuShuruiInput = document.getElementById('dbHisaijutakuShurui');  // 被災住宅の種類
+    let dbHisaijutakuShoyuuInput = document.getElementById('dbHisaijutakuShoyuu');  // 被災住宅の所有等
+    let dbHigaiJokyoInput = document.getElementById('dbHigaiJokyo');  // 被害状況
+    let dbHigaiJokyoDaikiboHankaiOrHankaiInput = document.getElementById('dbHigaiJokyoDaikiboHankaiOrHankai');  // 被災住宅の修理が不能又は困難である
+    let dbBukken_MensekiInput = document.getElementById('dbBukken_Menseki');   // 敷地の面積（㎡）
+    let aplBukkenAddressTodofukenInput = document.getElementById('aplBukkenAddressTodofuken'); // 物件_敷地（所在地）_都道府県
+    let dbBukkenAddressShigunInput = document.getElementById('dbBukkenAddressShigun');  // 物件_敷地（所在地）_市郡
+    let dbBukkenAddressChosonInput = document.getElementById('dbBukkenAddressChoson'); // 物件_敷地（所在地）_町村
+    let aplBukkenAddressBanchiInput = document.getElementById('aplBukkenAddressBanchi'); // 物件_敷地（所在地）_番地
+    let aplBukkenAddressPostCode3Input = document.getElementById('aplBukkenAddressPostCode3'); // 物件_敷地（所在地）_郵便番号
+    let dbBousaiSyudanItenJigyoInput = document.getElementById('dbBousaiSyudanItenJigyo'); // 防災集団移転事業に係る住宅再建を行う
+    let dbBukkenShikichiNoShoyuKankeiInput = document.getElementById('dbBukkenShikichiNoShoyuKankei'); // 敷地の所有関係
+    let dbBukken_Tatemono_JutakuInput = document.getElementById('dbBukken_Tatemono_Jutaku');  // 建物の床面積_住宅部分
+    let dbBukken_Tatemono_HiJutakuInput = document.getElementById('dbBukken_Tatemono_HiJutaku'); // 建物の床面積_非住宅部分
+    let dbBukken_KozoInput = document.getElementById('dbBukken_Kozo');   // 建物の構造（戸建形式）
+    let dbBukken_TatekataKodateKeishikiInput = document.getElementById('dbBukken_TatekataKodateKeishiki'); // 建て方
+    let dbNyukyoYoteiDateYearInput = document.getElementById('dbNyukyoYoteiDateYear'); // 入居予定年（年）
+    let dbNyukyoYoteiDateMonthInput = document.getElementById('dbNyukyoYoteiDateMonth'); // 入居予定月（月）
+    let dbJutakuYotoInput = document.getElementById('dbJutakuYoto');  // 住宅の用途
+    let dbBukken_KojiKanryoDate_YearInput = document.getElementById('dbBukken_KojiKanryoDate_Year'); // 物件_工事完了予定年月_年
+    let dbBukken_KojiKanryoDate_MonthInput = document.getElementById('dbBukken_KojiKanryoDate_Month'); // 物件_工事完了予定年月_月
+    let dbShikinDateTochiShikinYearInput = document.getElementById('dbShikinDateTochiShikinYear');  // 資金の受取予定年月_土地先行資金_年
+    let dbShikinDateTochiShikinMonthInput = document.getElementById('dbShikinDateTochiShikinMonth'); // 資金の受取予定年月_土地先行資金_月
+    let dbShikinDateChukanShikinYearInput = document.getElementById('dbShikinDateChukanShikinYear'); // 資金の受取予定年月_中間資金_年
+    let dbShikinDateChukanShikinMonthInput = document.getElementById('dbShikinDateChukanShikinMonth');// 資金の受取予定年月_中間資金_月
+    let dbShikinDateSaishuShikinYearInput = document.getElementById('dbShikinDateSaishuShikinYear'); // 資金の受取予定年月_最終資金_年
+    let dbShikinDateSaishuShikinMonthInput = document.getElementById('dbShikinDateSaishuShikinMonth'); // 資金の受取予定年月_最終資金_月
+    let dbKariireIninKaishaNameInput = document.getElementById('dbKariireIninKaishaName'); //会社名称
+    let dbChukaiHanbaiNameKanaInput = document.getElementById('dbChukaiHanbaiNameKana'); //仲介業者又は販売代理_名称（カナ）
+    let dbChukaiHanbaiTantoshaNameSeiInput = document.getElementById('dbChukaiHanbaiTantoshaNameSei'); //仲介業者又は販売代理_担当者名_姓
+    let dbChukaiHanbaiTantoshaNameMeiInput = document.getElementById('dbChukaiHanbaiTantoshaNameMei'); //仲介業者又は販売代理_担当者名_名
+    let dbHiyouKensetsuHiInput = document.getElementById('dbHiyouKensetsuHi'); //建設費
+    let dbHiyouTochiSyotokuHiInput = document.getElementById('dbHiyouTochiSyotokuHi'); //土地取得費
+    let dbHiyouTotalInput = document.getElementById('dbHiyouTotal'); //費用合計
+    let dbHensaiHouhouInput = document.getElementById('dbHensaiHouhou'); //返済方法
+    let dbHisaiShinzokuDokyoAriInput = document.getElementById('dbHisaiShinzokuDokyoAri'); //被災親族同居の有無
+    let dbSueokiKikanNoNensuInput = document.getElementById('dbSueokiKikanNoNensu'); //据置期間の年数
+    let dbKariireGakuKingakuInput = document.getElementById('dbKariireGakuKingaku'); //借入希望額_借入金額
+    let dbKariireGakuKinriInput = document.getElementById('dbKariireGakuKinri'); //借入希望額_金利
+    let dbKariireGakuHensaiKikanInput = document.getElementById('dbKariireGakuHensaiKikan'); //借入希望額_返済期間
+    let dbKariireGakuNenHensai12No1Input = document.getElementById('dbKariireGakuNenHensai12No1'); //借入希望額_年間返済額の1/12
+    let dbSonotaNameInput = document.getElementById('dbSonotaName'); //その他_借入先名称等
+    let dbSonotaKingakuInput = document.getElementById('dbSonotaKingaku'); //その他_借入金額（万円）
+    let dbSonotaHensaiKikanInput = document.getElementById('dbSonotaHensaiKikan'); //その他_返済期間　（年）
+    let dbSonotaNenHensai12No1Input = document.getElementById('dbSonotaNenHensai12No1'); //その他_年間返済額の1/12（円）
+    let dbHiyouTotal1Input = document.getElementById('dbHiyouTotal1'); //建設に要する費用（再掲）
+    let dbSogoKingakuInput = document.getElementById('dbSogoKingaku'); //災害融資の借入希望額、その他の借入内容（万円）
+    let dbKinyuKikanNameInput = document.getElementById('dbKinyuKikanName'); //金融機関名
+    let dbShitemNameInput = document.getElementById('dbShitemName');//支店名
+    let returnButton = document.getElementById('ReturnButton'); //返回按钮
+    let nextButton = document.getElementById('NextButton'); //下一页按钮
+
+
+    // 被災住宅の種類（マイホーム）を選択したら、被災住宅の所有等欄（申込本人が所有している、上記以外）を表示される。
+    dbHisaijutakuShuruiInput.onchange=function () {
+        if (dbHisaijutakuShuruiInput.options[dbHisaijutakuShuruiInput.selectedIndex].value==="マイホーム"){
+            document.getElementById('moshikomi').style.display="none"
+        }else{
+            document.getElementById('moshikomi').style.display="block"
+        }
+    };
+    //  被災住宅の修理が不能又は困難である欄は　(被害状況）が（01 全壊）の場合は、選択不要です。
+    dbHigaiJokyoInput.onchange = function () {
+        if(dbHigaiJokyoInput.options[dbHigaiJokyoInput.selectedIndex].value==="01全壊")
+        {dbHigaiJokyoDaikiboHankaiOrHankaiInput.disabled=true}
+        else{
+            dbHigaiJokyoDaikiboHankaiOrHankaiInput.disabled=false;
+        }
+    }
+
+    dbHigaiJokyoDaikiboHankaiOrHankaiInput.onclick=function(){
+        dbHigaiJokyoDaikiboHankaiOrHankaiInput.value='困難である'
+    }
+
+    // 敷地の面積，建物の床面積（住宅部分、非住宅部分）小数点第3位以下は切捨てください。
+    dbBukken_MensekiInput.oninput = function () {
+        dbBukken_MensekiInput.value= dbBukken_MensekiInput.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3')
+    }
+
+    dbBukken_MensekiInput.onblur = function () {
+        let alertdbBukken_Menseki = document.getElementById('alertdbBukken_Menseki');
+        if (dbBukken_MensekiInput.value<0 || dbBukken_MensekiInput.value>999.99 ) {
+            alertdbBukken_Menseki.innerHTML = '0~999.99内の数字を入力してください。';
+        }
+        else {
+            alertdbBukken_Menseki.innerHTML = '';
+        }
+
+    }
+
+    dbBousaiSyudanItenJigyoInput.onchange = function () {
+
+        dbBousaiSyudanItenJigyoInput.value='該当'
+    }
+
+
+    dbBukken_Tatemono_JutakuInput.oninput = function () {
+        dbBukken_Tatemono_JutakuInput.value= dbBukken_Tatemono_JutakuInput.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3')
+    }
+
+    dbBukken_Tatemono_JutakuInput.onblur = function () {
+        let alertdbBukken_Tatemono_Jutaku = document.getElementById('alertdbBukken_Tatemono_Jutaku');
+        if (dbBukken_Tatemono_JutakuInput.value<0 || dbBukken_Tatemono_JutakuInput.value>999.99 ) {
+            alertdbBukken_Tatemono_Jutaku.innerHTML = '0~999.99内の数字を入力してください。';
+        }
+        else {
+            alertdbBukken_Tatemono_Jutaku.innerHTML = '';
+        }
+
+    }
+
+    dbBukken_Tatemono_HiJutakuInput.oninput = function () {
+        dbBukken_Tatemono_HiJutakuInput.value= dbBukken_Tatemono_HiJutakuInput.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3')
+    }
+
+    dbBukken_Tatemono_HiJutakuInput.onblur = function () {
+        let alertdbBukken_Tatemono_HiJutaku = document.getElementById('alertdbBukken_Tatemono_HiJutaku');
+        if (dbBukken_Tatemono_HiJutakuInput.value<0 || dbBukken_Tatemono_HiJutakuInput.value>999.99 ) {
+            alertdbBukken_Tatemono_HiJutaku.innerHTML = '0~999.99内の数字を入力してください。';
+        }
+        else {
+            alertdbBukken_Tatemono_HiJutaku.innerHTML = '';
+        }
+
+    }
+
+    // 情報入力したら、入力内容が間違っていた場合はすぐにエラーが報告される
+    dbBukkenAddressShigunInput.onblur = function () {
+        let AlertdbBukkenAddressShigun = document.getElementById('AlertdbBukkenAddressShigun');
+        if (dbBukkenAddressShigunInput.value.length>255) {
+            AlertdbBukkenAddressShigun.innerHTML  = '入力した文字が長すぎます。255字内で再入力してください。';
+        } else{
+            AlertdbBukkenAddressShigun.innerHTML  = '';
+        }
+    };
+
+    dbBukkenAddressChosonInput.onblur = function () {
+        let AlertdbBukkenAddressChoson = document.getElementById('AlertdbBukkenAddressChoson');
+        if (dbBukkenAddressChosonInput.value.length>255) {
+            AlertdbBukkenAddressChoson.innerHTML  = '入力した文字が長すぎます。255字内で再入力してください。';
+        } else{
+            AlertdbBukkenAddressChoson.innerHTML  = '';
+        }
+    };
+
+    aplBukkenAddressBanchiInput.onblur = function () {
+        let AlertaplBukkenAddressBanchi = document.getElementById('AlertaplBukkenAddressBanchi');
+        if (aplBukkenAddressBanchiInput.value.length>255) {
+            AlertaplBukkenAddressBanchi.innerHTML  = '入力した文字が長すぎます。255字内で再入力してください。';
+        } else{
+            AlertaplBukkenAddressBanchi.innerHTML  = '';
+        }
+    };
+
+    aplBukkenAddressPostCode3Input.onblur = function () {
+        let AlertaplBukkenAddressPostCode3 = document.getElementById('AlertaplBukkenAddressPostCode3');
+        if (aplBukkenAddressPostCode3Input.value.length>15) {
+            AlertaplBukkenAddressPostCode3.innerHTML  = '15字内で再入力してください。';
+        } else{
+            AlertaplBukkenAddressPostCode3.innerHTML  = '';
+        }
+    };
+
+
+
+</script>
+
+
+
+</body>
+</html>

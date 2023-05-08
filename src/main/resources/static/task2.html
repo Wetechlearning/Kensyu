@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>担保者画面</title>
+    <script type="text/javascript" ></script>
+    <style>
+
+
+        .header2{
+            font-size: 15px;
+            text-align: center;
+            margin:20px auto;
+        }
+
+
+         table {
+             border-collapse: collapse;
+             margin: 0 auto;
+         }
+        td, th {
+            border: 1px solid black;
+            padding: 10px;
+        }
+
+
+
+        body {
+            margin: 0px;
+            padding: 0px;
+            background-image: url('background.webp');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+        }
+        .bitian {
+            color: red;
+        }
+
+        input[type="text"] {
+            width: 300px;
+        }
+
+        textarea {
+            height: 100px;
+            width: 300px;
+        }
+
+        .tijiao {
+            text-align: center;
+        }
+
+        .button{
+            width: 100px;
+            height: 30px;
+            line-height: 15px;
+            background: darkslateblue;
+            color: deepskyblue;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+
+        span{
+            color: red;
+            font-size: 15px;
+        }
+
+        #charcount {
+            color: red;
+        }
+
+    </style>
+
+
+</head>
+
+
+
+
+<body>
+
+        <div class="header2">
+            <h2>担保者情報</h2>
+        </div>
+
+
+        <p>Welcome, <span id="name"></span><span id="name1"></span></p >
+
+        <table>
+
+            <tr>
+                <!--设置姓-->
+                <td>氏名</td>
+                <td class="bitian">必填</td>
+                <td> <label class="question" id="xingLable">姓(漢字) </label>
+                    <input type="text" name="xing" id="xing" placeholder="全角文字で入力してください">
+                    <span class="tishi" id="tsxing"></span>
+                <!--  设置名-->
+                    <label class="question">名(漢字)</label>
+                    <input type="text" name="ming" id="ming" placeholder="全角文字で入力してください"  >
+                    <span class="tishi" id="tsming"></span>
+
+                </td>
+            </tr>
+
+            <tr>
+                <td>氏名(カタカナ)</td>
+                <td class="bitian">必填</td>
+                <td>
+                    <!--设置セイ-->
+                    <label class="question">セイ</label>
+
+                        <input type="text" name="sei" id="sei" placeholder="カタカナで入力してください" >
+                        <span class="tishi" id="tssei"></span>
+
+
+                    <!--设置メイ-->
+                    <label class="question">メイ</label>
+
+                        <input type="text" name="mei" id="mei" placeholder="カタカナで入力してください" >
+                        <span class="tishi" id="tsmei"></span>
+
+                </td>
+            </tr>
+
+
+
+            <!--设置性别-->
+            <tr>
+        <td>性别</td>
+        <td class="bitian">必填</td>
+        <td><label class="biaoqian"> 性别：</label>
+            <label><input type="radio" name="sex" id="sex1" value="男">男</label>
+            <label><input type="radio" name="sex" id="sex2" value="女">女</label>
+            <label><input type="radio" name="sex" id="sex3" value="Decline to State(声明拒否)">Decline to State(声明拒否)</label></td>
+            </tr>
+
+            <!--  设置生日-->
+            <tr>
+                <td>出生年月</td>
+                <td class="bitian">必填</td>
+                <td> <label for="birthday">出生日期：</label>
+                    <input type="date" id="birthday" name="birthday">
+                </td>
+            </tr>
+
+            <!--设置年齢-->
+            <tr>
+                <td>年齢</td>
+                <td class="bitian">必填</td>
+                <td><label for="age">(自動表示)</label>
+                    <input type="number" id="age" name="age" required>歳
+                </td>
+            </tr>
+
+            <!--设置担保提供物-->
+            <tr>
+                <td>担保提供物</td>
+                <td class="bitian">必填</td>
+                <td>
+                    <label class="biaoqian"></label>
+                    <select name="tanpomono" id="tanpomono">
+                        <option value="">オプションを選択してください。</option>
+                        <option value="建物のみ">建物のみ</option>
+                        <option value="土地のみ">土地のみ</option>
+                        <option value="建物・土地">建物・土地</option>
+
+                    </select>
+
+                </td>
+            </tr>
+
+            <!--设置担保理由 -->
+            <tr>
+                <td>担保者となる理由</td>
+                <td class="bitian">必填</td>
+                <td>
+                    <label class="biaoqian"></label>
+                    <select name="moushikomi" id="moushikomi">
+                        <option value="">オプションを選択してください。</option>
+                        <option value="親子リレー返済">親子リレー返済</option>
+                        <option value="収入合算（同居親族）">収入合算（同居親族）</option>
+                        <option value="収入合算（非同居直系親族）">収入合算（非同居直系親族）</option>
+                        <option value="その他">その他</option>
+
+                    </select>
+                </td>
+            </tr>
+
+
+            <!-- 选择关系-->
+            <tr>
+                <td>申請者と関係</td>
+                <td class="bitian">必填</td>
+                <td>
+                    <label class="biaoqian"></label>
+                    <select name="rentai" id="rentai">
+                        <option value="">オプションを選択してください。</option>
+                        <option value="配偶者">配偶者</option>
+                        <option value="婚約者">婚約者</option>
+                        <option value="親">親</option>
+                        <option value="子">子</option>
+                        <option value="その他">その他</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!--设置职业-->
+            <tr>
+                <td>職業</td>
+                <td class="bitian">必填</td>
+                <td>
+                    <label class="biaoqian"></label>
+                    <select id="job" name="job" >
+                        <option value="">オブションを選択してください。</option>
+                        <option value="01自営業" >01 自営業</option>
+                        <option value="02パート、アルバイト" >02 パート、アルバイト</option>
+                        <option value="03公務員" >03 公務員</option>
+                        <option value="04会社員" >04 会社員</option>
+                        <option value="05その他" >05 その他</option>
+                        <option value="06無職" >06 無職</option>
+                    </select>
+                </td>
+            </tr>
+
+            <!-- 设置居住情况 -->
+            <tr>
+                <td>個人申請者と同じ</td>
+                <td class="bitian">必填</td>
+                <td>
+                    <label class="biaoqian"> </label>
+                    <label><input type="radio" name="cpsame" id="cpsame" value="同居">同居</label>
+                    <label><input type="radio" name="cpsame" id="cpdiff" value="别居">别居</label>
+
+                </td>
+            </tr>
+
+            <!--设置携帯電話-->
+            <tr>
+                <td>携帯電話</td>
+                <td class="bitian">必填</td>
+                <td>
+                    <label class="biaoqian"></label>
+                    <div class="answer">
+                        <input type="text" class="answer" id="phone" name="phone"  >
+                        <span id="tsphone"></span>
+                    </div>
+                </td>
+            </tr>
+
+            <!--设置勤務先-->
+            <tr>
+                <td>勤務先の名称</td>
+                <td class="bitian">必填</td>
+                <td>
+                    <label class="biaoqian">  </label>
+                    <div class="answer">
+                        <input type="text" class="answer" id="address" name="address">
+                        <span id="tsaddress"></span>
+                    </div>
+
+                </td>
+            </tr>
+
+            <!--设置担保理由-->
+            <tr>
+                <td>担保理由</td>
+                <td class="bitian">必填</td>
+                <td>
+                    <label for="reason"></label>
+                    <textarea id="reason" name="reason" placeholder="担保理由は50文字以上～200文字未満で具体的にわかりやすい表現で記述してください" required></textarea><button id="saveBtn">一時保存</button>
+
+                    <p id="charcount"></p>
+                </td>
+            </tr>
+        </table>
+
+        <!--设置按钮-->
+        <div class="tijiao">
+            <button type="button" class="button" id="back" >戻る</button>&nbsp;
+            <button type="button" class="button" id="next" >次へ</button>
+        </div>
+
+
+
+        <!--交互实现-->
+        <script>
+            //获取输入框
+            let xingInput = document.getElementById('xing');
+            let mingInput = document.getElementById('ming');
+            let seiInput = document.getElementById('sei');
+            let meiInput = document.getElementById('mei');
+            let birthInput = document.getElementById('birthday');
+            let phoneInput = document.getElementById('phone');
+            let jobInput = document.getElementById('job');
+            let addressInput = document.getElementById('address');
+            let rentaiInput = document.getElementById('rentai');
+            let tanpomonoInput = document.getElementById('tanpomono');
+            let moushikomiInput = document.getElementById('moushikomi');
+            let reasonInput = document.getElementById('reason');
+            // let reasonInput = document.getElementById('reason');
+            let backButton = document.getElementById('back');
+            let nextButton = document.getElementById('next');
+
+
+            //监听save按钮
+            nextButton.addEventListener('click', () => {
+
+                //先获取输入的值
+                let xing = xingInput.value;
+                let ming = mingInput.value;
+                let sei = seiInput.value;
+                let mei = meiInput.value;
+                let age = ageInput.value;
+
+
+
+                //通过正则表达式来看输入框输的对不对
+                let check1 =/^[\u4E00-\u9FA5]+$/;
+                if (check1.test(xingInput.value)===false) {
+                    alert('姓を漢字で入力してください');
+                    return;
+                }
+
+                if (xingInput.value.length>40) {
+                    alert('入力した姓が長すぎます。40字内で再入力してください。')
+                    return;
+                }
+
+                if (check1.test(mingInput.value)===false) {
+                    alert('名を漢字で入力してください')
+                    return;
+                }
+
+
+                if (mingInput.value.length>20) {
+                    alert('入力した名が長すぎます。40字内で再入力してください。')
+                    return;
+                }
+
+                let check2 = /^[ｧ-ﾝﾞﾟ]+$/;
+                if (check2.test(seiInput.value)===false) {
+                    alert('セイをカタカナでで入力してください')
+                    return;
+                }
+
+                if (seiInput.value.length>40) {
+                    alert('入力したセイが長すぎます。40字内で再入力してください。')
+                    return;
+                }
+
+                if (check2.test(meiInput.value)===false) {
+                    alert('メイをカタカナでで入力してください')
+                    return;
+                }
+
+                if (meiInput.value.length>40) {
+                    alert('入力したメイが長すぎます。40字内で再入力してください。')
+                    return;
+                }
+
+
+                // 检查性别是否已选择
+                let gender = document.getElementsByName("sex");
+                let sexValue='';
+                for (let i = 0; i < gender.length; i++) {
+                    if (gender[i].checked === true) {
+                        sexValue = gender[i].value;
+                    }
+                }
+                let sex = sexValue;
+                if (sex === '') {
+                    alert('请填写性别');
+                    return;
+                }
+
+                let birth = birthInput.value;
+                if (birth === '') {
+                    alert('请填写出生日期');
+                    return;
+                }
+
+
+                let tanpomono = tanpomonoInput.options[tanpomonoInput.selectedIndex].value;
+                if (tanpomonoInput.value === '') {
+                    alert('请选择担保物');
+                    return;
+                }
+
+
+
+                let moushikomi = document.getElementById('moushikomi').value;
+                if (moushikomi === '') {
+                    alert('担保者理由を選択してください。');
+                    return;
+                }
+
+
+
+                let rentai = document.getElementById('rentai').value;
+                if (rentai === '') {
+                    alert('申請者と関係を選択してください。');
+                    return;
+                }
+
+                let job = jobInput.options[jobInput.selectedIndex].value;
+                if (jobInput.value === '') {
+                    alert('请选择職業');
+                    return;
+                }
+
+                let cpsame = document.getElementsByName('cpsame');
+                let isChecked = false;
+                for (let i = 0; i < cpsame.length; i++) {
+                    if (cpsame[i].checked) {
+                        isChecked = true;
+                        break;
+                    }
+                }
+                if (!isChecked) {
+                    alert('個人申請者と同じを選択してください。');
+                    return;
+                }
+
+
+                let reason = document.getElementById('reason').value;
+                let charcount = document.getElementById('charcount');
+                if (reason.length < 50 || reason.length >= 200) {
+                    alert('担保理由は50文字以上、200文字未満で入力してください。');
+                    return;
+                }
+
+
+
+
+
+
+
+                let check5 = /^\d{11}$/;
+
+                if (check5.test(phoneInput.value)===false) {
+                    alert('電話番号を11個数字で入力してください。')
+                    return;
+                }
+
+                if (check5.test(phoneInput.value)===false) {
+                    alert('携帯電話を11個数字で入力してください。')
+                    return;
+                }
+
+
+                let address = addressInput.value;
+                if (address === '') {
+                    alert('请填写勤務先');
+                    return;
+                }
+                //因为address已经是一个文本输入框了，不属于js变量，所以不用let关键字也成
+                if (addressInput.value.length>40) {
+                    alert('入力した文字が長すぎます。40字内で再入力してください。')
+                    return;
+                }
+
+                //将数据保存到数据库中
+                //Fetch API是浏览器内置的Web API，用于在客户端与服务器之间进行网络通信。
+
+                fetch('/tests/tan', {
+                    //指定请求方法为POST，表示向服务器提交数据。
+                    method: 'POST',
+                    //指定请求头，告诉服务器请求体的格式为JSON格式。
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    //将JSON对象转换为字符串，然后作为请求体传递给服务器。
+                    body: JSON.stringify({xing, ming, sei, mei,age, sex,birth, job, address,moushikomi,reason,rentai,tanpomono,cpsame})
+                })
+                    // 信息都正确的话就传输到数据库
+
+                    .then(response => {
+                        if (response.ok) {
+                            alert('保存成功');
+                            //保存成功后跳转到新的页面
+                            window.location.href="task3.html"
+                        } else {
+                            return response.text().then(text => {
+                                throw new Error(text)
+                            });
+                        }
+                    })
+                    // 如果存在问题, 就alert提示错误
+
+                    .catch(error => {
+                        alert(error.message);
+                    });
+            });
+            //检查输入框，然后根据内容提示
+            //姓提示
+            xingInput.onblur = function () {
+                let tsxing = document.getElementById('tsxing');
+                let check1 = /^[\u4E00-\u9FA5]+$/;
+
+                if (check1.test(xingInput.value)===false) {
+                    tsxing.innerHTML = '姓を漢字で入力してください';
+                } else if (xingInput.value.length>40) {
+                    tsxing.innerHTML = '入力した姓が長すぎます。40字内で再入力してください。';
+                }
+                else {
+                    tsxing.innerHTML = '';
+                }
+            };
+
+            //名提示
+            mingInput.onblur = function () {
+                let tsming = document.getElementById('tsming');
+                let check1 = /^[\u4E00-\u9FA5]+$/;
+                if (check1.test(mingInput.value)===false) {
+                    tsming.innerHTML = '名を漢字で入力してください';
+                } else if (mingInput.value.length>40) {
+                    tsming.innerHTML = '入力した名が長すぎます。40字内で再入力してください。';
+                }
+                else {
+                    tsming.innerHTML = '';
+                }
+            };
+
+            //sei提示
+            seiInput.onblur = function () {
+                let tssei = document.getElementById('tssei');
+                let check2 = /^[ｧ-ﾝﾞﾟ]+$/;
+                if (check2.test(seiInput.value)===false) {
+                    tssei.innerHTML = 'セイをカタカナでで入力してください';
+                } else if (seiInput.value.length>40) {
+                    tssei.innerHTML = '入力したセイが長すぎます。40字内で再入力してください。';
+                }
+                else {
+                    tssei.innerHTML = '';
+                }
+            };
+
+            //mei提示
+            meiInput.onblur = function () {
+                let tsmei = document.getElementById('tsmei');
+                let check2 =/^[ｧ-ﾝﾞﾟ]+$/;
+                if (check2.test(meiInput.value)===false) {
+                    tsmei.innerHTML = 'メイをカタカナでで入力してください';
+                } else if (meiInput.value.length>40) {
+                    tsmei.innerHTML = '入力したメイが長すぎます。40字内で再入力してください。';
+                }
+                else {
+                    tsmei.innerHTML = '';
+                }
+            };
+
+            //电话提示
+            let phone = phoneInput.value;
+            phoneInput.onblur = function () {
+                let telSave = phoneInput.value;
+                localStorage.setItem("tel", telSave);
+                let tsphone = document.getElementById('tsphone');
+                let check5 = /^\d{11}$/;
+                if (check5.test(phoneInput.value)===false) {
+                    tsphone.innerHTML = '携帯電話を11個数字で入力してください';
+                }
+                else {
+                    tsphone.innerHTML = '';
+                }
+
+            };
+
+            //地址提示
+            addressInput.onblur = function () {
+                let tsaddress = document.getElementById('tsaddress');
+                let check = /^[^\x00-\xff]+$/;
+                if (check.test(addressInput.value) === false) {
+                    tsaddress.innerHTML = '勤務先の名称を入力してください';
+                } else if (addressInput.value.length > 40) {
+                    tsaddress.innerHTML = '入力した勤務先の名称が長すぎます。40字内で再入力してください。';
+                } else {
+                    tsaddress.innerHTML = '';
+                }
+            };
+
+            //理由提示
+
+            reasonInput.addEventListener('input', function() {
+                const reason = reasonInput.value.trim();
+                const length = reason.length;
+
+                if (length < 50) {
+                    charCount.innerHTML = '担保理由は50文字以上で入力してください';
+                } else if (length >= 200) {
+                    charCount.innerHTML = '入力した担保理由が長すぎます。200字内で再入力してください。';
+                } else {
+                    charCount.innerHTML = '';
+                }
+            });
+
+            reasonInput.addEventListener('blur', function() {
+                const reason = reasonInput.value.trim();
+                const length = reason.length;
+
+                if (length < 50) {
+                    charCount.innerHTML = '担保理由は50文字以上で入力してください';
+                    reason2Input.focus();
+                } else if (length >= 200) {
+                    charCount.innerHTML = '入力した担保理由が長すぎます。200字内で再入力してください。';
+                    reason2Input.focus();
+                } else {
+                    charCount.innerHTML = '';
+                }
+            });
+
+            //返回上一页
+            backButton.addEventListener('click', () => {
+                window.location.href="task1.html"
+            } )
+
+
+
+          // <!--监听字数-->
+            var textArea = document.getElementById("reason");
+            var charCount = document.getElementById("charcount");
+
+            textArea.addEventListener("input", function() {
+                var count = textArea.value.length;
+                charCount.innerHTML = count + " 字";
+            });
+
+
+            // 添加事件监听器以监测单选框的变化
+            var radioButtons = document.getElementsByName("cpsame");
+            for (var i = 0; i < radioButtons.length; i++) {
+                radioButtons[i].addEventListener("change", function() {
+                    if (this.value === "同居") {
+                        // 从sessionStorage中获取携带电话和同居的值
+                        var phone = sessionStorage.getItem("phone");
+                        var cpsame = sessionStorage.getItem("cpsame");
+                        // 对携带电话和同居的值进行处理
+                        console.log("携帯電話:", phone);
+                        console.log("同居:", cpsame);
+                    }
+                });
+            }
+            // 监听同居和别居单选框的变化
+            // 获取同居和别居单选框
+            const cpsameRadio = document.querySelector('input[name="cpsame"][value="同居"]');
+            const cpdiffRadio = document.querySelector('input[name="cpsame"][value="别居"]');
+
+            cpsameRadio.addEventListener('change', function() {
+                // 如果选择同居，禁用输入框
+              var   phone1 = localStorage.getItem("phone");
+                document.getElementById('phone').value= phone1;
+                phoneInput.disabled = true;
+                console.log("111"+phone1);
+
+                var   address1 = localStorage.getItem("address");
+                document.getElementById('address').value= address1;
+
+                addressInput.disabled = true;
+            });
+
+            cpdiffRadio.addEventListener('change', function() {
+                // 如果选择别居，启用输入框
+                phoneInput.disabled = false;
+                addressInput.disabled = false;
+                document.getElementById('phone').value = "";
+                document.getElementById('address').value = "";
+
+            });
+
+
+            // 获取出生日期输入框和年龄输入框的引用
+            var birthdayInput = document.getElementById("birthday");
+            var ageInput = document.getElementById("age");
+
+            // 添加一个事件监听器，当出生日期选择时，自动计算年龄并填入年龄输入框
+            birthdayInput.addEventListener("change", function() {
+                // 获取出生日期和当前日期
+                var birthday = new Date(birthdayInput.value);
+                var now = new Date();
+
+                // 计算年龄
+                var age = now.getFullYear() - birthday.getFullYear();
+
+                // 如果生日还没过，则年龄减1
+                if (now.getMonth() < birthday.getMonth() || (now.getMonth() == birthday.getMonth() && now.getDate() < birthday.getDate())) {
+                    age--;
+                }
+
+                // 将计算出的年龄填入年龄输入框
+                ageInput.value = age;
+            });
+
+            // 获取当前日期并格式化为 ISO 格式
+            var today = new Date();
+            var isoDate = today.toISOString().split('T')[0];
+
+            // 设置日期控件的最大日期为今天
+            document.getElementById('birthday').setAttribute('max', isoDate);
+
+        //一時保存
+            var saveBtn = document.getElementById('saveBtn');
+
+
+            saveBtn.addEventListener('click', function() {
+                localStorage.setItem('savedReason', reasonInput.value);
+            });
+            window.onload = function() {
+                var savedReason = localStorage.getItem('savedReason');
+                if (savedReason) {
+                    reasonInput.value = savedReason;
+                }
+            };
+
+
+
+
+
+
+            var name = localStorage.getItem("xing");
+            if (name) {
+                document.getElementById("name").innerHTML = name;
+            }
+
+            var name = localStorage.getItem("ming");
+            if (name) {
+                document.getElementById("name1").innerHTML = name;
+            }
+
+
+
+
+        </script>
+
+
+     </body>
+</html>
